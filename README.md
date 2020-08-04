@@ -47,13 +47,7 @@
    DB_PASSWORD=secret
    ```
 
-8. うまく立ち上がっているか確認
-
-   ```
-   docker-compose ps
-   ```
-
-9. config/app.phpの一部編集
+8. config/app.phpの一部編集
 
    ```
    'timezone' => 'Asia/Tokyo',
