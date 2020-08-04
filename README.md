@@ -54,4 +54,25 @@
 
    [ここ](http://localhost/)
 
+## 使い方
+
+- 始めるとき laradockの階層で
+   ```bash
+   docker-compose up -d workspace nginx mysql
+   ```
+- 終わるとき
+   ```bash
+   docker-compose down
+   ```
+
+## まとめ
+
+- Laravelの環境構築ができた
+
+## Next Step
+
+- Laravelを勉強していくのみ!
+- [チームラボのサイト](https://team-lab.github.io/skillup/step2/03-laravel-demo.html)で自分は最初勉強しました
+- Sodai.でチュートリアル作ってくれる方募集中です...
+
    
