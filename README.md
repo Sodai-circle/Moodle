@@ -1,4 +1,9 @@
-# Laravel
+# Laravel環境構築
+
+- Laravel + Nginx + Mysqlの環境です
+- dockerを使ったlaravelの環境構築なのでlaradockと名付けています
+
+## LaraDock
 
 1. リポジトリをクローン
 
