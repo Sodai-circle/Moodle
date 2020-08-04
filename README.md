@@ -3,7 +3,7 @@
 1. リポジトリをクローン
 
    ```
-   
+   git clone https://gitlab.com/welcome-to-sodai/laravel.git laravel_app/laradock
    ```
 
 2. .envをコピー
