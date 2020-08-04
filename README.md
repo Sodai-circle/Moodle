@@ -12,7 +12,7 @@
    cp env-example .env
    ```
 
-3. raildock階層で
+3. laradock階層で
 
    ```
    docker-compose build workspace nginx mysql
@@ -32,11 +32,7 @@
    exit
    ```
 
-6. うまくいっているか確認
-
-   [ここ](http://localhost/)
-
-7. src配下の.envを編集
+6. src配下の.envを編集
 
    ```
    DB_CONNECTION=mysql
@@ -47,11 +43,15 @@
    DB_PASSWORD=secret
    ```
 
-8. config/app.phpの一部編集
+7. config/app.phpの一部編集
 
    ```
    'timezone' => 'Asia/Tokyo',
    'locale' => 'ja',
    ```
+
+8. うまくいっているか確認
+
+   [ここ](http://localhost/)
 
    
