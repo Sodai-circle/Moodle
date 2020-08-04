@@ -11,13 +11,14 @@
    git clone https://gitlab.com/welcome-to-sodai/laravel.git laravel_app/laradock
    ```
 
-2. .envをコピー
+2. laradock階層で
 
    ```
    cp env-example .env
    ```
+   必要に応じて中身は編集
 
-3. laradock階層で
+3. 同じくlaradock階層で
 
    ```
    docker-compose build workspace nginx mysql
