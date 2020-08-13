@@ -1,6 +1,6 @@
 # Laravel環境構築
 
-- Laravel + Nginx + Mysqlの環境です
+- Laravel + Nginx + Mysql + xdebugの環境です
 - dockerを使ったlaravelの環境構築なのでlaradockと名付けています
 
 ## LaraDock
@@ -70,6 +70,37 @@
    ```bash
    docker-compose down
    ```
+
+## デバッグ(vscode用)
+   ```json:launch.json
+   {
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Listen for XDebug",
+            "type": "php",
+            "request": "launch",
+            "pathMappings": {
+                "/var/www/": "${workspaceRoot}/src/"
+            },
+            "log": true,
+            "port": 9000
+        },
+        {
+            "name": "Launch currently open script",
+            "type": "php",
+            "request": "launch",
+            "program": "${file}",
+            "cwd": "${fileDirname}",
+            "port": 9000
+        }
+    ]
+   }
+   ```
+   以上を設定するとデバッグできる。
 
 ## まとめ
 
