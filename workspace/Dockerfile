@@ -15,6 +15,15 @@ RUN apt-get update && \
     && apt-get clean
 RUN docker-php-ext-install pdo_mysql
 
+# nodejs
+RUN apt-get -y update
+RUN apt-get install -y \
+    curl \
+    gnupg
+RUN curl -sL https://deb.nodesource.com/setup_11.x | bash -
+RUN apt-get install -y nodejs
+RUN npm install npm@latest -g
+
 #Composer install
 COPY --from=composer /usr/bin/composer /usr/bin/composer
 
