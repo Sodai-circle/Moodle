@@ -6,10 +6,11 @@ services:
     build:
       context: ./workspace
       args:
-        - PHP_VERSION=${PHP_VERSION}
+        - PHP_VERSION=7.4
         - INSTALL_XDEBUG=${WORKSPACE_INSTALL_XDEBUG}
     volumes:
         - ${APP_CODE_PATH_HOST}:${APP_CODE_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
+        - ${APP_DATA_PATH_HOST}:${APP_DATA_PATH_CONTAINER}${APP_CODE_CONTAINER_FLAG}
     depends_on:
       - mysql
 

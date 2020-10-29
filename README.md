@@ -1,24 +1,24 @@
 # Laravel環境構築
 
-- Laravel + Nginx + Mysql + xdebugの環境です
-- dockerを使ったlaravelの環境構築なのでlaradockと名付けています
+- Moodle + Nginx + Mysqlの環境です
+- dockerを使ったmoodleの環境構築なのでmoodockと名付けています
 
-## LaraDock
+## moodock
 
 1. リポジトリをクローン
 
    ```
-   git clone https://gitlab.com/welcome-to-sodai/laravel.git laravel_app/laradock
+   git clone https://gitlab.com/welcome-to-sodai/laravel.git moodle_app/moodock
    ```
 
-2. laradock階層で
+2. moodock階層で
 
    ```
    cp env-example .env
    ```
-   必要に応じて中身は編集
+   必要に応じて中身は編集(特にAPP_NAME)
 
-3. 同じくlaradock階層で
+3. 同じくmoodock階層で
 
    ```
    docker-compose build workspace nginx mysql
@@ -27,42 +27,32 @@
 4. コンテナを構築、起動
 
    ```
-   docker-compose up -d workspace nginx
+   docker-compose up -d workspace nginx mysql
    ```
 
-5. workspaceのbashに入りlaravelアプリを作成
+5. workspaceのbashに入りmoodleアプリをhtmlディレクトリへ
 
    ```
    docker-compose exec workspace bash
-   composer create-project laravel/laravel . --prefer-dist
+   cp -R /opt/moodle /var/www/html/
+   chown -R www-data /var/moodledata
+   chmod -R 777 /var/moodledata
+   chmod -R 0755 /var/www/html/moodle
    exit
    ```
 
-6. src配下の.envを編集
 
-   ```
-   DB_CONNECTION=mysql
-   DB_HOST=mysql
-   DB_PORT=3306
-   DB_DATABASE=default
-   DB_USERNAME=default
-   DB_PASSWORD=secret
-   ```
+8. 初期設定
 
-7. config/app.phpの一部編集
+   [ここ](http://localhost/moodle)
 
-   ```
-   'timezone' => 'Asia/Tokyo',
-   'locale' => 'ja',
-   ```
+- mysqlなど諸々の設定をする
 
-8. うまくいっているか確認
-
-   [ここ](http://localhost/)
+- 全ての設定が終わった後、systemみたいな簡素な画面が表示される。それをしばらく待った後に`http://localhost/admin/index.php?cache=0&confirmrelease=1&confirmplugincheck=1`ここにアクセスしないといけない? 
 
 ## 使い方
 
-- 始めるとき laradockの階層で
+- 始めるとき moodockの階層で
    ```bash
    docker-compose up -d workspace nginx mysql
    ```
@@ -71,45 +61,13 @@
    docker-compose down
    ```
 
-## デバッグ(vscode用)
-   ```json:launch.json
-   {
-    // Use IntelliSense to learn about possible attributes.
-    // Hover to view descriptions of existing attributes.
-    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
-    "version": "0.2.0",
-    "configurations": [
-        {
-            "name": "Listen for XDebug",
-            "type": "php",
-            "request": "launch",
-            "pathMappings": {
-                "/var/www/": "${workspaceRoot}/src/"
-            },
-            "log": true,
-            "port": 9000
-        },
-        {
-            "name": "Launch currently open script",
-            "type": "php",
-            "request": "launch",
-            "program": "${file}",
-            "cwd": "${fileDirname}",
-            "port": 9000
-        }
-    ]
-   }
-   ```
-   以上を`launch.json`に設定するとデバッグできる。
-
 ## まとめ
 
-- Laravelの環境構築ができた
+- Moodleの環境構築ができた
 
 ## Next Step
 
-- Laravelを勉強していくのみ!
-- [チームラボのサイト](https://team-lab.github.io/skillup/step2/03-laravel-demo.html)で自分は最初勉強しました
-- Sodai.でチュートリアル作ってくれる方募集中です...
+- [公式サイト](https://docs.moodle.org/39/en/Main_page)
+- API周りは[ここ](https://docs.moodle.org/39/en/Web_services)
 
    
