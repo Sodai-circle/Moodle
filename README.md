@@ -1,14 +1,13 @@
 # Laravel環境構築
 
 - Moodle + Nginx + Mysqlの環境です
-- dockerを使ったmoodleの環境構築なのでmoodockと名付けています
 
 ## moodock
 
 1. リポジトリをクローン
 
    ```
-   git clone https://gitlab.com/welcome-to-sodai/laravel.git moodle_app/moodock
+   git clone https://github.com/Sodai-circle/Moodle.git moodle_app/moodock
    ```
 
 2. moodock階層で
@@ -60,10 +59,6 @@
    ```bash
    docker-compose down
    ```
-
-## まとめ
-
-- Moodleの環境構築ができた
 
 ## Next Step
 
